@@ -1,0 +1,12 @@
+[Unit]
+Description=Glances
+After=network.target
+
+[Service]
+ExecStart=/home/pi/.local/bin/glances -w
+Restart=on-abort
+User=pi
+Group=pi
+
+[Install]
+WantedBy=multi-user.target

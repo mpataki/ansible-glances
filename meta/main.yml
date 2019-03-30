@@ -1,0 +1,14 @@
+galaxy_info:
+  role_name: glances
+  author: Mat Pataki
+  description: 'installs and configures glances'
+  company: 'n/a'
+  license: MIT
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+
+dependencies: []

@@ -1,0 +1,42 @@
+---
+
+- name: install python tools
+  apt:
+    update_cache: true
+    name:
+      - python
+      - python-pip
+      - python-setuptools
+    state: latest
+  become: true
+
+- name: install glances & deps
+  pip:
+    name:
+      - glances
+      - psutil
+      - bottle
+  notify: restart glances
+
+- name: install the glances systemd unit
+  copy:
+    src: files/glances.service
+    dest: /etc/systemd/system/glances.service
+    owner: root
+    group: root
+  become: true
+
+- name: install glances config file
+  template:
+    src: templates/glances.conf
+    dest: /etc/glances/glances.conf
+  become: true
+  notify: restart glances
+
+- name: enable and start glances
+  systemd:
+    name: glances
+    enabled: true
+    state: started
+  become: true
+
