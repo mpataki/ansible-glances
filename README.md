@@ -1,5 +1,7 @@
 # ansible-glances
 
+[![Build Status](https://travis-ci.org/mpataki/ansible-glances.svg?branch=master)](https://travis-ci.org/mpataki/ansible-glances)
+
 This ansible role installs and configures [glances](https://nicolargo.github.io/glances/).
 
 ## Requirements
