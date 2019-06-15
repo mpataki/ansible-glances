@@ -26,6 +26,12 @@
     group: root
   become: true
 
+- name: create glances config dir
+  file:
+    path: /etc/glances
+    state: directory
+  become: true
+
 - name: install glances config file
   template:
     src: templates/glances.conf
